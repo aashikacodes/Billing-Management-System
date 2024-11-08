@@ -1,9 +1,7 @@
 hello world 12345
-<<<<<<< HEAD
-asd
-=======
 
-hello world
+asd
+
 This is my first program
 
->>>>>>> main
+
