@@ -78,7 +78,7 @@ int main(){
      scanf("%d",&opt);
      fgetc(stdin);
      switch(opt){
-        case 1;
+        case 1:
         system("clear");
         printf("\nPlease enter the name of the customer:\t");
         fgets(ord.customer,50,stdin);
@@ -100,7 +100,7 @@ int main(){
             total += ord.itm[i].qty * ord.itm[i].price;
         }
 
-   g    generateBillHeader(ord.customer,ord.date);
+       generateBillHeader(ord.customer,ord.date);
    for(int i=0;i<ord.numOfitems;i++){
        generateBillBody(ord.itm[i].item,ord.itm[i].qty,ord.itm[i].price);    
    } 
@@ -118,7 +118,7 @@ int main(){
     printf("\nError saving");
     fclose(fp);
    }
-   break:
+   break;
 
    case 2:
    system("clear");
