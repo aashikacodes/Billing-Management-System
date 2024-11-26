@@ -17,8 +17,8 @@ struct orders {
 };
 
 // Global variables
-struct items inventory[100]; // Inventory array
-int inventoryCount = 0;      // Number of items in inventory
+struct items inventory[100];
+int inventoryCount = 0; // Track number of items in inventory
 
 // Function prototypes
 void initializeInventory();
@@ -26,7 +26,6 @@ void displayInventory();
 void updateInventory();
 int findItemInInventory(char itemName[20]);
 void reduceInventory(char itemName[20], int quantity);
-void displayItems();
 void operationsMenu();
 void generateBillHeader(char name[50], char date[30]);
 void generateBillBody(char item[30], int qty, float price);
@@ -48,17 +47,15 @@ void initializeInventory() {
         printf("\nEnter details for item %d:\n", i + 1);
         printf("Item Name: ");
         fgets(inventory[i].name, sizeof(inventory[i].name), stdin);
-        inventory[i].name[strcspn(inventory[i].name, "\n")] = 0; // Remove newline
+        inventory[i].name[strcspn(inventory[i].name, "\n")] = 0;
 
         printf("Quantity: ");
         scanf("%d", &inventory[i].qty);
-        getchar(); // Consume newline
 
         printf("Price: ");
         scanf("%f", &inventory[i].price);
         getchar(); // Consume newline
     }
-
     printf("\nInventory initialized successfully!\n");
 }
 
@@ -89,7 +86,7 @@ void updateInventory() {
     char itemName[20];
     printf("\nEnter the name of the item to update: ");
     fgets(itemName, sizeof(itemName), stdin);
-    itemName[strcspn(itemName, "\n")] = 0; // Remove newline
+    itemName[strcspn(itemName, "\n")] = 0;
 
     int index = findItemInInventory(itemName);
     if (index != -1) {
@@ -97,7 +94,6 @@ void updateInventory() {
 
         printf("New Quantity: ");
         scanf("%d", &inventory[index].qty);
-        getchar(); // Consume newline
 
         printf("New Price: ");
         scanf("%f", &inventory[index].price);
@@ -109,47 +105,18 @@ void updateInventory() {
     }
 }
 
-// Reduce inventory after an order
+// Reduce inventory
 void reduceInventory(char itemName[20], int quantity) {
     int index = findItemInInventory(itemName);
     if (index != -1) {
         if (inventory[index].qty >= quantity) {
             inventory[index].qty -= quantity;
         } else {
-            printf("\nError: Insufficient quantity for %s in inventory.\n", itemName);
+            printf("\nError: Insufficient quantity for %s.\n", itemName);
         }
     } else {
         printf("\nError: Item %s not found in inventory.\n", itemName);
     }
-}
-
-// Display items menu
-void displayItems() {
-    printf("\n========== ITEMS MENU ==========\n");
-    printf("1. Aglio e Olio - $800\n");
-    printf("2. Margherita Pizza - $500\n");
-    printf("3. Chole Bhature - $100\n");
-    printf("4. Vegetable Spring Rolls - $150\n");
-    printf("5. Tomato Basil Soup - $150\n");
-    printf("6. Burrito Bowl - $150\n");
-    printf("7. Loaded Nachos - $150\n");
-    printf("8. Hot and Sour Soup - $150\n");
-    printf("9. Pumpkin Soup - $150\n");
-    printf("10. Lasagna - $150\n");
-    printf("================================\n");
-    printf("Enter your choice: ");
-}
-
-// Operations menu
-void operationsMenu() {
-    printf("\t================ JAB FOOD MET US ================\n");
-    printf("\nPlease select your preferred operation:\n");
-    printf("1. Generate Invoice\n");
-    printf("2. Show All Invoices\n");
-    printf("3. Search Invoice\n");
-    printf("4. Inventory Management\n");
-    printf("5. EXIT\n");
-    printf("\nEnter your choice: ");
 }
 
 // Generate bill header
@@ -188,6 +155,18 @@ void generateBillFooter(float total) {
     printf("-----------------------------------------------------------------\n");
 }
 
+// Operations menu
+void operationsMenu() {
+    printf("\t================ JAB FOOD MET US ================\n");
+    printf("\nPlease select your preferred operation:\n");
+    printf("1. Generate Invoice\n");
+    printf("2. Show All Invoices\n");
+    printf("3. Search Invoice\n");
+    printf("4. Inventory Management\n");
+    printf("5. EXIT\n");
+    printf("\nEnter your choice: ");
+}
+
 // Main function
 int main() {
     int opt;
@@ -201,21 +180,17 @@ int main() {
 
         switch (opt) {
         case 1:
-            // Generate Invoice
             printf("\nFeature under construction.\n");
             break;
         case 2:
-            // Show All Invoices
             printf("\nFeature under construction.\n");
             break;
         case 3:
-            // Search Invoice
             printf("\nFeature under construction.\n");
             break;
-        case 4:
-            // Inventory Management
-            printf("\n1. Initialize Inventory\n2. Display Inventory\n3. Update Inventory\n");
+        case 4: {
             int invOpt;
+            printf("\n1. Initialize Inventory\n2. Display Inventory\n3. Update Inventory\n");
             printf("Enter your choice: ");
             scanf("%d", &invOpt);
             getchar();
@@ -234,10 +209,9 @@ int main() {
                 printf("\nInvalid choice.\n");
                 break;
             }
-            break;
+        } break;
         case 5:
-            // Exit
-            printf("\nThank you for using JAB FOOD MET US Billing System. Goodbye!\n");
+            printf("\nThank you for using the system. Goodbye!\n");
             exit(0);
         default:
             printf("\nInvalid choice! Please try again.\n");
