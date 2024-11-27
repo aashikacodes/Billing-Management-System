@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include<math.h>
 // Structures for items and orders
 struct items {
     char name[20];
@@ -15,7 +15,34 @@ struct orders {
     int numOfItems;
     struct items itm[50];
 };
+void displayItems()
+{
+    printf("\n========== ITEMS MENU ==========\n");
+    printf("1. Aglio e Olio - $800\n");
+    printf("2. Margherita Pizza - $500\n");
+    printf("3. chole bhature  - $100\n");
+    printf("4. Vegetable Spring Rolls - $150\n");
+    printf("5. Tomato Basil Soup - $150\n");
+    printf("6. Burrito Bowl – - $150\n");
+    printf("7. Loaded Nachos - $150\n");
+    printf("8. Hot and Sour Soup  - $150\n");
+    printf("9. Pumpkin Soup - $150\n");
+    printf("10. Lasagna  - $150\n");
+    printf("11. Exit\n");
+    printf("================================\n");
+    printf("Enter your choice: ");
+}
 
+void operationsMenu()
+{
+    printf("\t================ JAB FOOD MET US ================\n");
+    printf("\nPlease select your preferred operation:\t");
+    printf("\n1. Generate Invoice");
+    printf("\n2. Show All Invoices");
+    printf("\n3. Search Invoice");
+    printf("\n4. EXIT");
+    printf("\n\nEnter your choice: ");
+}
 // Global variables
 struct items inventory[100];
 int inventoryCount = 0; // Track number of items in inventory
@@ -156,22 +183,102 @@ void generateBillFooter(float total) {
 }
 
 // Operations menu
-void operationsMenu() {
-    printf("\t================ JAB FOOD MET US ================\n");
-    printf("\nPlease select your preferred operation:\n");
-    printf("1. Generate Invoice\n");
-    printf("2. Show All Invoices\n");
-    printf("3. Search Invoice\n");
-    printf("4. Inventory Management\n");
-    printf("5. EXIT\n");
-    printf("\nEnter your choice: ");
-}
+
 
 // Main function
 int main() {
     int opt;
     char contFlag = 'y';
 
+int opt , n;
+    struct orders ord;
+
+    int choice;
+
+    while (1)
+    {                  
+        system("cls"); 
+        displayItems();
+
+        scanf("%d", &choice);
+  if (choice == 11){
+      printf("\nThank you for visiting! Goodbye!\n");
+      exit(0);
+  }
+        switch (choice)
+        {
+        case 1:
+            printf("\nYou chose Aglio e Olio. Price: $800.\n");
+            break;
+        case 2:
+            printf("\nYou chose Margherita Pizza. Price: $500.\n");
+            break;
+        case 3:
+            printf("\nYou chose chole bhature . Price: $100.\n");
+            break;
+        case 4:
+            printf("\nYou chose  Vegetable Spring Rolls. Price: $150.\n");
+            break;
+        case 5:
+            printf("\nYou chose  Tomato Basil Soup. Price: $150.\n");
+            break;
+        case 6:
+            printf("\nYou chose  Burrito Bowl. Price: $150.\n");
+            break;
+        case 7:
+            printf("\nYou chose  Loaded Nachos . Price: $150.\n");
+            break;
+        case 8:
+            printf("\nYou chose   Hot and Sour Soup. Price: $150.\n");
+            break;
+        case 9:
+            printf("\nYou chose   Pumpkin Soup. Price: $150.\n");
+            break;
+        case 10:
+            printf("\nYou chose   Lasagna . Price: $150.\n");
+            break;
+        case 11:
+            printf("\nThank you for visiting! Goodbye!\n");
+            exit(0);
+        default:
+            printf("\nInvalid choice. Please try again.\n");
+        }
+
+        printf("\nPress Enter to return to the menu...");
+        getchar(); 
+        getchar(); 
+    }
+    while (1)
+    {
+        system("cls"); 
+        operationsMenu();
+
+        scanf("%d", &opt);
+        getchar();
+        switch (opt)
+        {
+        case 1:
+            printf("\nplease enter the name of the customer:\t");
+            fgets(ord.customer, 50, stdin);
+            ord.customer[strlen(ord.customer) - 1] = 0;
+            strcpy(ord.date, __DATE__);
+            printf("\nplease enter no. of items:\t");
+            scanf("%d", &n);
+            for (int i = 0; i < n; i++)
+            {
+                fgetc(stdin);
+                printf("\n\n");
+                printf("please enter the item:%d:\t", i + 1);
+                fgets(ord.itm[i].item, 20, stdin);
+                ord.itm[i].item[strlen(ord.itm[i].item) - 1] = 0;
+                printf("please enter the quantity:\t");
+                scanf("%d", &ord.itm[i].qty);
+                printf("please enter the unit price:\t");
+                scanf("%f", &ord.itm[i].price);
+            }
+        }
+
+        printf("\n\n");
     while (contFlag == 'y') {
         system(CLEAR_SCREEN);
         operationsMenu();
