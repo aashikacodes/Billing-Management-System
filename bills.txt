@@ -1,0 +1,54 @@
+Customer Name: John Doe
+Date: 2024-11-26
+Total Amount: 53000.00
+Items Purchased:
+  - Laptop: 1 @ 50000.00 each
+  - Mouse: 2 @ 1500.00 each
+----------------------------------
+Customer Name: John Doe
+Date: 2024-11-26
+Total Amount: 53000.00
+Items Purchased:
+  - Laptop: 1 @ 50000.00 each
+  - Mouse: 2 @ 1500.00 each
+----------------------------------
+Customer Name: John Doe
+Date: 2024-11-26
+Total Amount: 53000.00
+Items Purchased:
+  - Laptop: 1 @ 50000.00 each
+  - Mouse: 2 @ 1500.00 each
+----------------------------------
+Customer Name: John Doe
+Date: 2024-11-26
+Total Amount: 53000.00
+Items Purchased:
+  - Laptop: 1 @ 50000.00 each
+  - Mouse: 2 @ 1500.00 each
+----------------------------------
+Customer Name: cd "c:\Users\3PIN\Desktop\Bushra\" && gcc file.c 
+Date: -o
+Total Amount: 0.00
+Items Purchased:
+----------------------------------
+Customer Name: John Doe
+Date: 2024-11-26
+Total Amount: 53000.00
+Items Purchased:
+  - Laptop: 1 @ 50000.00 each
+  - Mouse: 2 @ 1500.00 each
+----------------------------------
+Customer Name: John Doe
+Date: 2024-11-26
+Total Amount: 53000.00
+Items Purchased:
+  - Laptop: 1 @ 50000.00 each
+  - Mouse: 2 @ 1500.00 each
+----------------------------------
+Customer Name: John Doe
+Date: 2024-11-26
+Total Amount: 53000.00
+Items Purchased:
+  - Laptop: 1 @ 50000.00 each
+  - Mouse: 2 @ 1500.00 each
+----------------------------------
